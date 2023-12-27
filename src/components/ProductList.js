@@ -4,7 +4,6 @@ import { fetchProducts } from "../actions/index";
 import ProductItem from "./ProductItem";
 
 function ProductList({ products, fetchProducts }) {
-  console.log(products);
   useEffect(() => {
     fetchProducts();
   }, [fetchProducts]);
@@ -17,14 +16,14 @@ function ProductList({ products, fetchProducts }) {
             <ProductItem key={product.id} product={{ ...product }} />
           ))
         ) : (
-          <li>Loading...</li>
+          <li>Loading...{products.productList.length}</li>
         )}
       </div>
     </div>
   );
 }
 const mapStateToProps = (state) => ({
-  products: state.products,
+  products: state.productList.products,
 });
 
 export default connect(mapStateToProps, { fetchProducts })(ProductList);
