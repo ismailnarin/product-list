@@ -11,7 +11,7 @@ import App from "./App";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const rootReducer = combineReducers({
   productList: productList,
-  modalReducers: modalReducers,
+  modalReducer: modalReducers,
 });
 const store = configureStore({
   reducer: rootReducer,

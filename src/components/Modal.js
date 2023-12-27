@@ -1,19 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
+import { connect } from "react-redux";
 import { Button, Modal } from "react-bootstrap";
+import { closeModal } from "../actions/index";
 
-const MyModal = () => {
-  const [show, setShow] = useState(false);
-
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
+const MyModal = ({ products, closeModal }) => {
+  const handleClose = () => closeModal();
 
   return (
     <div>
-      <Button variant="primary" onClick={handleShow}>
-        Modalı Aç
-      </Button>
-
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={products.modalReducer.showModal} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Modal Başlığı</Modal.Title>
         </Modal.Header>
@@ -31,4 +26,12 @@ const MyModal = () => {
   );
 };
 
-export default MyModal;
+const mapStateToProps = (state) => ({
+  products: state,
+});
+
+const mapDispatchToProps = {
+  closeModal,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyModal);

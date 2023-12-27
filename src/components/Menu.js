@@ -1,13 +1,24 @@
 import React from "react";
+import { openModal } from "../actions/index";
+import { connect } from "react-redux";
 
-function Menu() {
+function Menu({ openModal }) {
+  const showModal = (type) => {
+    openModal(type);
+  };
+
   return (
     <>
-      <div>Yeni Ekle</div>
+      <div onClick={() => showModal("new")}>Yeni Ekle</div>
       <div>Düzenle</div>
       <div>Sil</div>
     </>
   );
 }
 
-export default Menu;
+// connect içinde mapStateToProps ve mapDispatchToProps
+const mapDispatchToProps = {
+  openModal,
+};
+
+export default connect(null, mapDispatchToProps)(Menu);
