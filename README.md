@@ -1,10 +1,6 @@
-# Getting Started with Create React App
+### `json-server --watch db.json --port 5000`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
+Proje çalıştırılmadan önce Fake api 5000 Portunda çalıştırılmalıdır.
 
 ### `npm start`
 
