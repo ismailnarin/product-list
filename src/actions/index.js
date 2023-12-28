@@ -13,6 +13,9 @@ export const fetchProducts = () => {
       const data = await response.json();
       dispatch(setProducts(data));
     } catch (error) {
+      alert(
+        "Projenin çalışması için Json server 5000 portunda çalıştırılmalıdır. ilgili kod 'json-server --watch db.json --port 5000'"
+      );
       console.error("API isteği başarısız:", error);
     }
   };
